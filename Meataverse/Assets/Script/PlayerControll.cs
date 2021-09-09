@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControll : MonoBehaviour
 {
     public Vector3 dir;
-    public float speed = 1;
+    public float speed = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,10 @@ public class PlayerControll : MonoBehaviour
     void Update()
     {
         keyInput();
+        
+    }
+    private void FixedUpdate()
+    {
         Move();
     }
     void keyInput()
