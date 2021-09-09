@@ -28,7 +28,7 @@ public class PlayerControll : MonoBehaviour
         dir.y = Input.GetAxisRaw("Vertical");
     }
     private void Move()
-    {
+    {      
         transform.position += dir * speed * Time.deltaTime;
 
     }
