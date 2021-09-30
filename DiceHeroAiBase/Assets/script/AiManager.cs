@@ -35,23 +35,39 @@ public class AiManager : MonoBehaviour
                 //누가 통과했는지 확인하고 공격가능 인원 한번더 구분함.
                 Debug.Log("1차공격가능 인원 :" + unit);
                 //여기서 어떻게 함? 도와줘.
-                attackUnits[0] = unit; //indexOutOfRangeException 오류 뜸ㅋ
-                num++;
-                
-
-                attackDis();
+                attackUnits[num] = unit; //indexOutOfRangeException 오류 뜸ㅋ
+                num++;             
             }
-            else
-            {
-                
-            }
+            
         }
-
         num = 0;
+        attackDis();
     }
+
     void attackDis()
     {
+        GameObject chgUnit;
 
+        foreach(GameObject attUnit in attackUnits)//여기서 공격순으로 정렬
+        {
+            foreach(GameObject attUnit2 in attackUnits)
+            {
+                Debug.Log("실행됨");
+
+                if (attackUnits[num].GetComponent<UnitState>().hp < attackUnits[num+1].GetComponent<UnitState>().hp)                                                                        
+                {
+
+                    Debug.Log(attackUnits[num] + "->" + attackUnits[num + 1]);
+
+                    chgUnit = attackUnits[num];
+                    attackUnits[num] = attackUnits[num + 1];
+                    attackUnits[num + 1] = chgUnit;
+
+                   
+                }
+            }         
+
+        }
     }
 
 
